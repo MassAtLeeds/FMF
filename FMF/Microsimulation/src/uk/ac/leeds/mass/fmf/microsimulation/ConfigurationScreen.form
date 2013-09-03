@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPopupMenu" name="populationPopup">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="setPopulationID">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Set as ID field"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setPopulationIDActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="addLink">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add a link"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addLinkActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="removeLink">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove link"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeLinkActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="editLink">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit link"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editLinkActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPopupMenu" name="linkPopupMenu">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="addRow">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add row"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addRowActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="removeRow">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove row"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeRowActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="saveLink">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Save link"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveLinkActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="populationLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="linkLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="populationPane" alignment="0" pref="372" max="32767" attributes="1"/>
+                          <Component id="constraintPane" alignment="0" pref="372" max="32767" attributes="1"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="linkForTotal" pref="266" max="32767" attributes="1"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="actionLabel" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="1">
+                                      <Component id="seed" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="randomise" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="saveConfig" alignment="1" min="-2" max="-2" attributes="1"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="btLoadData" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btCreateTables" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="run" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="modelName" alignment="1" min="-2" pref="241" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="outputLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="outputRDS" min="-2" pref="147" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="outputTable" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="actionPane" alignment="0" pref="384" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="populationLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="populationPane" pref="154" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="linkLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="constraintPane" min="-2" pref="173" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="actionLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="actionPane" pref="295" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="outputLabel" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="outputRDS" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="outputTable" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="modelName" pref="23" max="32767" attributes="1"/>
+                          <Component id="saveConfig" alignment="0" min="-2" max="-2" attributes="1"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="run" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btLoadData" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btCreateTables" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="randomise" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="seed" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="linkForTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="actionPane">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+    </Container>
+    <Component class="javax.swing.JLabel" name="actionLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Optimisation settings"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="populationPane">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="populationTable">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="populationModel" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Drag the population table from the data source tree and use the context menu to create and edit the links."/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="populationTableMouseReleased"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="constraintPane">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="constraintTable">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="constraintModel" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Drag a table from the data source tree to start linking"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="constraintTableMouseReleased"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="populationLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Population Table"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="linkLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Link Table"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveConfig">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save configuration"/>
+        <Property name="toolTipText" type="java.lang.String" value="Save the current configuration settings."/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveConfigActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="modelName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;model name&gt;&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Enter the name for this configuration without using the &apos; character."/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="outputRDS">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;output data source&gt;&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="Drag a data source from the data source tree where the model output is to be saved."/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="outputTable">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;&lt;output table group name&gt;&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Type in a prefix for the group of tables that will be created to save the output (without using the character &apos;).&lt;br&gt;&lt;b&gt;  Note that any existing tables by the same name will be replaced.&lt;/b&gt;"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="outputLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Output to:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="run">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Run"/>
+        <Property name="toolTipText" type="java.lang.String" value="Run the current configuration."/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="runActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btLoadData">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Load Data"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btLoadDataActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btCreateTables">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Create Tables"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCreateTablesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="randomise">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Randomise"/>
+        <Property name="toolTipText" type="java.lang.String" value="If checked the model will be randomised, if unchecked the seed value to the left will be used."/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randomiseActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="seed">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="toolTipText" type="java.lang.String" value="Enter a seed to make model results reproducable"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="linkForTotal">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Select the constraint table to be used for calculating the total population for each zone"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="linkForTotalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Table for zone totals "/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

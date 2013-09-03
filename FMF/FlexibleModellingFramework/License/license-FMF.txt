@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}This is the new license...
+${licensePrefix}It has been edited
+<#if licenseLast??>
+${licenseLast}
+</#if>

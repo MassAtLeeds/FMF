@@ -1,0 +1,4 @@
+<DEBUG>true
+<LOAD FROM LOGON>false
+<APPLICATION TITLE>Flexible Modelling Framework
+<CONFIG DATABASE>SIM

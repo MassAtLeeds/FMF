@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="stepsLabel" alignment="0" pref="307" max="32767" attributes="1"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="stepsSlider" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="stepsValue" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="improvementAttemptSlider" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="improvementAttemptValue" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="improvementAttemptLabel" alignment="0" pref="340" max="32767" attributes="1"/>
+                      <Component id="improvementLabel" alignment="0" max="32767" attributes="1"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="factorSlider" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="factorValue" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="improvementSlider" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="improvementValue" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="factorLabel" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" max="-2" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="stepsLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="stepsValue" max="32767" attributes="1"/>
+                  <Component id="stepsSlider" alignment="1" max="32767" attributes="1"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="improvementAttemptLabel" min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="improvementAttemptValue" max="32767" attributes="1"/>
+                  <Component id="improvementAttemptSlider" alignment="0" min="-2" max="-2" attributes="1"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="improvementLabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="improvementSlider" min="-2" max="-2" attributes="1"/>
+                  </Group>
+                  <Group type="102" attributes="1">
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="improvementValue" max="32767" attributes="1"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="factorLabel" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="factorSlider" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="1"/>
+                      <Component id="factorValue" min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JSlider" name="stepsSlider">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="20"/>
+        <Property name="maximum" type="int" value="200"/>
+        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="set number &apos;cooling&apos; steps for the simulated annealing algorithm "/>
+        <Property name="value" type="int" value="100"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="stepsSliderMouseDragged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="stepsValue">
+      <BindingProperties>
+        <BindingProperty name="text" source="stepsSlider" sourcePath="${model.value}" target="stepsValue" targetPath="text" updateStrategy="2" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="stepsLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="set the maximum number of steps in the optimisation algorithm"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="improvementAttemptSlider">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="20"/>
+        <Property name="maximum" type="int" value="200"/>
+        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="set the maximum number of attempts that will be made to improve the optimisation before continuing"/>
+        <Property name="value" type="int" value="100"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="improvementAttemptSliderMouseDragged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="improvementAttemptLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="set the maximum number of improvement attempts before continuing"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="improvementAttemptValue">
+      <BindingProperties>
+        <BindingProperty name="text" source="improvementAttemptSlider" sourcePath="${model.value}" target="improvementAttemptValue" targetPath="text" updateStrategy="2" immediately="false">
+          <Property name="name" type="java.lang.String" value=""/>
+        </BindingProperty>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="improvementSlider">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="10"/>
+        <Property name="maximum" type="int" value="50"/>
+        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="set the number of successful improvements to be made before moving continuing"/>
+        <Property name="value" type="int" value="10"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="improvementSliderMouseDragged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="improvementLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="set the number of improvements to the optimisation before continuing"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="improvementValue">
+      <BindingProperties>
+        <BindingProperty name="text" source="improvementSlider" sourcePath="${model.value}" target="improvementValue" targetPath="text" updateStrategy="2" immediately="false"/>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="factorSlider">
+      <Properties>
+        <Property name="majorTickSpacing" type="int" value="10"/>
+        <Property name="minimum" type="int" value="1"/>
+        <Property name="minorTickSpacing" type="int" value="1"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="set the multiplication factor to be used to reduce the annealing schedule (how likely a non-improving change is to be accepted) each iteration."/>
+        <Property name="value" type="int" value="90"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="factorSliderMouseDragged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="factorLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="set the annealing reduction factor (recomended 0.9)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="factorValue">
+      <BindingProperties>
+        <BindingProperty name="text" source="factorSlider" sourcePath="${model.value/100}" target="factorValue" targetPath="text" updateStrategy="2" immediately="false"/>
+      </BindingProperties>
+    </Component>
+  </SubComponents>
+</Form>
