@@ -1,0 +1,17 @@
+# ignore all of the xml files
+*.xml
+
+#ignore anything in a build directory
+build/
+
+#ignore anything in a dist directory
+dist/
+
+#ignore anything in the net beans project directory
+nbproject/
+
+#ignore manifest files
+*.mf
+
+#ignore DS_Store files
+*.DS_Store
