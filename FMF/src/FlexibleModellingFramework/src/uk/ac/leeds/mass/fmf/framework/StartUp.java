@@ -1,6 +1,22 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *   The Flexible Modelling Framework is a Social Science application for 
+ *   synthesising individual level populations
+ *   Copyright (C) 2013  Kirk Harland
+ *
+ *   This program is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *   Contact email: k.harland@leeds.ac.uk
  */
 
 package uk.ac.leeds.mass.fmf.framework;
@@ -154,8 +170,9 @@ public class StartUp {
         String nextLine = System.getProperty("line.separator");
         
         //build the start string to be displayed in the status window on startup
-        String startString = ai.getApplicationTitle()+" is an open source application ";
-        startString = startString+"developed at the University of Leeds." + nextLine + nextLine;
+        String startString = ai.getApplicationTitle()+" Copyright (C) 2013 Kirk Harland " 	+ nextLine;
+        startString = startString+"This program is licensed under the GNU General Public 	License version 3" + nextLine;
+	startString = startString+"see license.txt or <http://www.gnu.org/licenses/>." + 	nextLine + nextLine;
         
         //write the start up string to the application status window
         ai.writeToStatusWindow(startString,false);
