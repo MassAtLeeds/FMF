@@ -1,3 +1,0 @@
-<DEBUG>false
-<LOAD FROM LOGON>false
-<APPLICATION TITLE>Flexible Modelling Framework version 1.0

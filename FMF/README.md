@@ -1,6 +1,6 @@
 This repository stores the FMF static spatial microsimulation software.
 
-In the Binaries directory all of the compiled and bundled files are located.  Copying this folder onto a machine running jre 6 or later will enable the software to run.  To start the software simply click on the exec.jar file.  For full installation and user guidance please see the user guide document at:
+For full installation and user guidance please see the user guide document at:
 
 In the src directory all of the source files required to build the project can be found in the correct directory structures reflecting the relevant classpaths. The software has dependencies on third party software:
 <ul>  
@@ -13,7 +13,6 @@ In the src directory all of the source files required to build the project can b
    <li>opencsv-2.3</li>
    <li>swing-layout-1.0.3</li>
 </ul>
-The associated jar files for these dependencies can be found in the Binaries/lib directory.
+The associated jar files for these dependencies can be found in the Dependancies directory.
 
 The test data directory contains a very simplified idealised example set of data.  This example is included so that users can see the file structures required to create a model.
-
