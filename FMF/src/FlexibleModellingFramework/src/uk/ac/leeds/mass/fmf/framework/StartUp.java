@@ -170,9 +170,9 @@ public class StartUp {
         String nextLine = System.getProperty("line.separator");
         
         //build the start string to be displayed in the status window on startup
-        String startString = ai.getApplicationTitle()+" Copyright (C) 2013 Kirk Harland " 	+ nextLine;
-        startString = startString+"This program is licensed under the GNU General Public 	License version 3" + nextLine;
-	startString = startString+"see license.txt or <http://www.gnu.org/licenses/>." + 	nextLine + nextLine;
+        String startString = ai.getApplicationTitle()+" Copyright (C) 2013 University of Leeds " + nextLine;
+        startString = startString+"This program is licensed under the GNU General Public License version 3 "+
+                "(see license.txt or <http://www.gnu.org/licenses/>)." + nextLine + nextLine;
         
         //write the start up string to the application status window
         ai.writeToStatusWindow(startString,false);
