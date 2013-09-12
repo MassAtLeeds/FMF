@@ -1,6 +1,6 @@
 This repository stores the FMF static spatial microsimulation software.
 
-For full installation and user guidance please see the user guide document at:
+For full installation and user guidance please see the user guide document at: <a href= "http://eprints.ncrm.ac.uk/3177/2/microsimulation_model.pdf">http://eprints.ncrm.ac.uk/3177/2/microsimulation_model.pdf</a>.
 
 In the src directory all of the source files required to build the project can be found in the correct directory structures reflecting the relevant classpaths. The software has dependencies on third party software:
 <ul>  
