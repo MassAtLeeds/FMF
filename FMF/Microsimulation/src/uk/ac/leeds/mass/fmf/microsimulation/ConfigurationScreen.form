@@ -136,7 +136,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="outputTable" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="actionPane" alignment="0" pref="384" max="32767" attributes="0"/>
+                          <Component id="actionPane" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -170,7 +170,7 @@
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="modelName" pref="23" max="32767" attributes="1"/>
+                          <Component id="modelName" max="32767" attributes="1"/>
                           <Component id="saveConfig" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                   </Group>

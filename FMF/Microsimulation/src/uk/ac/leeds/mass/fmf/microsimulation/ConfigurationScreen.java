@@ -832,10 +832,12 @@ public class ConfigurationScreen extends javax.swing.JPanel {
     private void runActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runActionPerformed
         
         if ( !this.outputRDS.getText().equals("<<output data source>>") ){
-
-            linkConfig.setOutputTableGroup(this.outputTable.getText());
             
             if ( modelType.equals(JarInfo.MICROSIMULATION_MODEL) ){
+                
+                //only set the output table group for a microsimulation model run
+                //it has already been set in the create tables action for evaluation runs
+                linkConfig.setOutputTableGroup(this.outputTable.getText());
 
                 boolean runModel = false;
 
@@ -921,6 +923,11 @@ public class ConfigurationScreen extends javax.swing.JPanel {
 
     private void btCreateTablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreateTablesActionPerformed
         if ( !this.outputRDS.getText().equals("<<output data source>>") ){
+            
+            //set the output table group name in the link config option.
+            //Any changes to this on screen after the creation of the tables is ignored.
+            linkConfig.setOutputTableGroup(this.outputTable.getText());
+            
             this.run.setEnabled(false);
             this.btCreateTables.setEnabled(false);
             CreateSummaryTables cst = new CreateSummaryTables(ai, dataLoader, linkConfig, vp.getPopRDS(),
