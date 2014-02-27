@@ -238,7 +238,13 @@ class LinkDataManager extends FrameworkProcess {
                         break;
                     }
                 }
-
+                
+                //if there is a problem print out some diagnostics to the screen
+                if ( pointer == -1 ){
+                    System.out.println("Potential problem with configuration population id = " + 
+                            populationID[j] + " Field = " + lc.getPopulationFields().get(i) + " Value = " + tempVal);
+                }
+                
                 population[i][j] = pointer;
 
                 progress++;
