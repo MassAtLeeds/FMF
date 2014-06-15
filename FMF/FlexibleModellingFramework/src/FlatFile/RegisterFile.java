@@ -52,6 +52,7 @@ public class RegisterFile extends javax.swing.JPanel implements javax.swing.Acti
     Object[] o = null;
     private int columnID = 0;
 
+	
     private JCheckBoxMenuItem stringType = new JCheckBoxMenuItem("String");
     private JCheckBoxMenuItem integerType = new JCheckBoxMenuItem("Integer");
     private JCheckBoxMenuItem doubleType = new JCheckBoxMenuItem("Double");
@@ -260,7 +261,7 @@ public class RegisterFile extends javax.swing.JPanel implements javax.swing.Acti
             }
         });
 
-        delHammer.setText("¬");
+        delHammer.setText(String.valueOf('\u00AC')); 
         delHammer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delHammerActionPerformed(evt);
@@ -643,7 +644,7 @@ public class RegisterFile extends javax.swing.JPanel implements javax.swing.Acti
         }else if ( this.delSemiColon.isSelected() ){
             return ';';
         }else if ( this.delHammer.isSelected() ){
-            return '¬';
+            return '\u00AC';
         }else if ( this.delPipe.isSelected() ){
             return '|';
         }else if ( this.delTab.isSelected() ){

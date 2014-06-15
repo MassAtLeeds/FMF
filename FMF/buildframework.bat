@@ -1,0 +1,271 @@
+ECHO OFF
+ECHO ---------------------------------------------------------------
+ECHO ***************************************************************
+ECHO *        _________________        _________________           *
+ECHO *        \___   ______    \      /    _____    ___/           * 
+ECHO *            [  ]     [    \    /    ]     [  ]               *
+ECHO *            [  ]__   [  [  \  /  ]  ]   __[  ]               *
+ECHO *            [   __]  [  ]\  \/  /[  ]  [__   ]               *
+ECHO *            [  ]     [  ] \____/ [  ]     [  ]               * 
+ECHO *            [__]     [__]        [__]     [__]               *
+ECHO *                                                             *
+ECHO *            FLEXIBLE    MODELLING    FRAMEWORK               *
+ECHO ***************************************************************
+ECHO *                                                             *
+ECHO *  (c)MASS@LEEDS  HTTPS://GITHUB.COM/MassAtLeeds/FMF/         *
+ECHO * GNU GENERAL PUBLIC LICENSE 3+  HTTP://WWW.GNU.ORG/licenses/ *
+ECHO *                                                             *
+ECHO ***************************************************************
+ECHO ---------------------------------------------------------------
+
+REM ----------------------------------------------------------------
+REM  Batch file to build the Flexible Modelling Framework
+REM  The bat assumes the download as a Git Repository from:
+REM  In order, the file:
+REM		A) Constructs the relevant classpath
+REM 	B) Compiles the core files
+REM		C) Compiles specified plugin files
+REM	 	D) Builds the docs of core files 
+REM           plus specified plugins in a Docs directory
+REM		E) Creates a Build directory and fills it with the relevant jar files
+REM		F) Zips up the Build directory for distribution (Dist/fmf.zip), 
+REM 		  but excludes developer templates plugins. 
+REM	 To add new plugins, see comments below.
+REM  ECHO ON for key issue reporting lines, but off more generally.
+REM  Info: Andy Evans http://www.geog.leeds.ac.uk/people/a.evans
+REM ----------------------------------------------------------------
+
+
+ECHO ---------------------------------------------------------------
+ECHO Start build   
+ECHO ---------------------------------------------------------------
+ECHO ---------------------------------------------------------------
+ECHO Set core classpaths 
+ECHO ---------------------------------------------------------------
+
+SETLOCAL
+SET CLASSPATH=%CLASSPATH%;FMFStart\src
+SET CLASSPATH=%CLASSPATH%;FlexibleModellingFramework\src
+SET CLASSPATH=%CLASSPATH%;Dependancies\
+SET CLASSPATH=%CLASSPATH%;SharedObjects\src
+SET CLASSPATH=%CLASSPATH%;Dependancies\beansbinding-1.2.1.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\colt.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\derby.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\derbyclient.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\derbynet.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\ec_util.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\opencsv-2.3.jar
+SET CLASSPATH=%CLASSPATH%;Dependancies\swing-layout-1.0.4.jar
+SET CLASSPATH=%CLASSPATH%;..\..\FMFStart\src
+SET CLASSPATH=%CLASSPATH%;..\..\FlexibleModellingFramework\src
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\
+SET CLASSPATH=%CLASSPATH%;..\..\SharedObjects\src
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\beansbinding-1.2.1.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\colt.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\derby.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\derbyclient.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\derbynet.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\ec_util.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\opencsv-2.3.jar
+SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\swing-layout-1.0.4.jar
+
+
+ECHO ---------------------------------------------------------------
+ECHO Compile core files   
+ECHO ---------------------------------------------------------------
+javac FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\framework\*.java
+javac FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\data_management\*.java
+javac FlexibleModellingFramework\src\FlatFile\*.java
+javac FlexibleModellingFramework\src\MSAccess\*.java
+javac FMFStart\src\fmfstart\*.java
+javac SharedObjects\src\uk\ac\leeds\mass\fmf\fit_statistics\*.java
+javac SharedObjects\src\uk\ac\leeds\mass\fmf\generic_algorithms\*.java
+javac SharedObjects\src\uk\ac\leeds\mass\fmf\shared_objects\*.java
+
+
+REM ----------------------------------------------------------------
+REM  Compile plugins. Add javac call below for new plugins. 
+REM  If the plugin uses any code not in the plugin or core classpath, 
+REM  the classpath may need adjusting.
+REM ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------
+ECHO Compile plugins  
+ECHO ---------------------------------------------------------------
+ECHO ON
+javac Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
+ECHO OFF
+
+SET CLASSPATH=%CLASSPATH%;PluginTemplates\ToolTemplate\src
+ECHO ON
+javac PluginTemplates\ToolTemplate\src\tooltemplate\*.java
+ECHO OFF
+
+
+REM  ---------------------------------------------------------------
+REM  For new plugins, add the package to the PACKAGES variable, as 
+REM  below.
+REM  ---------------------------------------------------------------
+ECHO ---------------------------------------------------------------
+ECHO Build docs   
+ECHO ---------------------------------------------------------------
+MKDIR Docs
+REM Core packages
+SET PACKAGES=
+SET PACKAGES=%PACKAGES%:FlatFile
+SET PACKAGES=%PACKAGES%:MSAccess
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.framework
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.data_management
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.shared_objects
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.generic_algorithms
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.fit_statistics
+SET PACKAGES=%PACKAGES%:fmfstart
+REM Plugin packages
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.microsimulation
+SET PACKAGES=%PACKAGES%:tooltemplate
+REM 2>NUL redirects StErr. Remove to see javadoc errors or 2> docerrors.txt to record them.
+ECHO ON
+javadoc -d Docs -private -author -quiet -version -link http://docs.oracle.com/javase/8/docs/api/ -sourcepath %CLASSPATH% -subpackages %PACKAGES% 2>NUL 
+ECHO OFF
+
+
+
+ECHO ---------------------------------------------------------------
+ECHO Build core distribution jars   
+ECHO Run exec.jar to run framework  
+ECHO ---------------------------------------------------------------
+MKDIR Build
+MKDIR Build\lib
+COPY Dependancies\*.jar Build\lib\
+
+ECHO Building SharedObject.jar
+REM Make the manifest if one not already existing in this location.
+IF EXIST SharedObjects\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: beansbinding-1.2.1.jar AbsoluteLayout.jar ec_util.jar>SharedObjects\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD SharedObjects\src
+jar cmf ..\MANIFEST.MF ..\..\Build\lib\SharedObjects.jar uk\ac\leeds\mass\fmf\fit_statistics\*.class uk\ac\leeds\mass\fmf\generic_algorithms\*.class uk\ac\leeds\mass\fmf\shared_objects\*.class  
+CD ..\..
+REM If the manifest already existed, don't delete it.
+IF %MFEXISTS% == FALSE (
+DEL SharedObjects\MANIFEST.MF
+)
+
+
+ECHO  Building FlexibleModellingFramework.jar
+IF EXIST FlexibleModellingFramework\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: lib/swing-layout-1.0.4.jar lib/SharedObjects.jar lib/beansbinding-1.2.1.jar lib/derby.jar lib/derbyclient.jar lib/derbynet.jar lib/colt.jar lib/opencsv-2.3.jar lib/ec_util.jar>FlexibleModellingFramework\MANIFEST.MF
+ECHO Main-Class: uk.ac.leeds.mass.fmf.framework.StartUp>>FlexibleModellingFramework\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD FlexibleModellingFramework\src
+jar cmf ..\MANIFEST.MF ..\..\Build\FlexibleModellingFramework.jar FlatFile\*.class MSAccess\*.class Resources\*.* uk\ac\leeds\mass\fmf\data_management\*.class uk\ac\leeds\mass\fmf\framework\*.class
+CD ..\..  
+IF %MFEXISTS% == FALSE (
+DEL FlexibleModellingFramework\MANIFEST.MF
+)
+
+
+ECHO Building FMFStart.jar
+REM Make the manifest if one not already existing in this location.
+IF EXIST FMFStart\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: lib/swing-layout-1.0.4.jar lib/SharedObjects.jar lib/beansbinding-1.2.1.jar lib/derby.jar lib/derbyclient.jar lib/derbynet.jar lib/colt.jar lib/opencsv-2.3.jar lib/ec_util.jar>FMFStart\MANIFEST.MF
+ECHO Main-Class: fmfstart.Main>>FMFStart\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD FMFStart\src
+jar cmf ..\MANIFEST.MF ..\..\Build\exec.jar fmfstart\*.class   
+CD ..\..
+IF %MFEXISTS% == FALSE (
+DEL FMFStart\MANIFEST.MF
+)
+
+
+REM ----------------------------------------------------------------
+REM  For new plugins, add jar making, as below.
+REM  MANIFEST.MF made, used, and deleted to avoid disturbing 
+REM  those using various IDEs to compile and build.
+REM  Use greater-than symbol to create and overwrite, and two to 
+REM  create and append. 
+REM ----------------------------------------------------------------
+ECHO ---------------------------------------------------------------
+ECHO Build plugin jars
+ECHO ---------------------------------------------------------------
+
+ECHO Building Microsimulation.jar
+IF EXIST Microsimulation\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: lib/SharedObjects.jar lib/swing-layout-1.0.3.jar lib/ec_util.jar>Microsimulation\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD Microsimulation\src
+jar cmf ..\MANIFEST.MF ..\..\Build\Microsimulation.jar uk\ac\leeds\mass\fmf\microsimulation\*.form uk\ac\leeds\mass\fmf\microsimulation\*.class
+CD ..\..
+IF %MFEXISTS% == FALSE (
+DEL Microsimulation\MANIFEST.MF
+)
+
+
+
+ECHO Building ToolTemplate.jar
+IF EXIST PluginTemplates\ToolTemplate\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: SharedObjects.jar>PluginTemplates\ToolTemplate\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD PluginTemplates\ToolTemplate\src
+jar cmf ..\MANIFEST.MF ..\..\..\Build\ToolTemplate.jar tooltemplate\*.class 
+CD ..\..\..
+IF %MFEXISTS% == FALSE (
+DEL PluginTemplates\ToolTemplate\MANIFEST.MF
+)
+
+
+ECHO ---------------------------------------------------------------
+ECHO Copy essential non-jar files
+ECHO ---------------------------------------------------------------
+COPY License.txt Build\License.txt
+COPY FlexibleModellingFramework\Init.txt Build\Init.txt
+MKDIR Build\test-data
+COPY "Test Data\*" Build\test-data
+
+
+
+ECHO ---------------------------------------------------------------
+ECHO Zip for distribution   
+ECHO See fmf.zip in Dist directory for full distribution in a zip  
+ECHO ---------------------------------------------------------------
+MKDIR Dist
+
+REM Move any jars we don't want in distribution copy.
+MOVE Build\ToolTemplate.jar Dist\ToolTemplate.jar
+
+CD Build 
+jar cf fmf.zip *
+CD ..
+MOVE Build\fmf.zip Dist\fmf.zip
+
+REM Move any jars back we don't want in distribution copy.
+MOVE Dist\ToolTemplate.jar Build\ToolTemplate.jar
+
+
+
+ECHO ---------------------------------------------------------------
+ECHO Cleanup  
+ECHO ---------------------------------------------------------------
+ENDLOCAL
+
+ECHO ---------------------------------------------------------------
+ECHO Done  
+ECHO ---------------------------------------------------------------
+ECHO ///////////////////////////////////////////////////////////////
+ECHO ---------------------------------------------------------------
+ECHO ON
