@@ -27,7 +27,7 @@ import javax.swing.JPopupMenu;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class FMFPopupListener implements MouseListener{
 

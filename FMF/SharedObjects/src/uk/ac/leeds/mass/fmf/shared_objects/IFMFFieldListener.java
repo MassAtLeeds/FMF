@@ -23,7 +23,7 @@ package uk.ac.leeds.mass.fmf.shared_objects;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public interface IFMFFieldListener {
     public void fieldChanged( String fieldName, int rowIdx );

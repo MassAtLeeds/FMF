@@ -51,7 +51,7 @@ import uk.ac.leeds.mass.fmf.data_management.RegisteredDataSources;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  * 
  * This is a singleton class that stores and broadcasts relevant information to all other interested parties in the framework
  * 

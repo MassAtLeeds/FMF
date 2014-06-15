@@ -37,7 +37,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.IProcessManager;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class ProcessManager implements IProcessManager{
 	private IApplicationInformation ai;

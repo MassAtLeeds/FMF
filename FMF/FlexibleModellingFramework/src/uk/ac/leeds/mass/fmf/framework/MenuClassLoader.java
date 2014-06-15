@@ -23,7 +23,7 @@ package uk.ac.leeds.mass.fmf.framework;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class MenuClassLoader  extends GenericClassLoader{
     //object only used for debugging and error tracking

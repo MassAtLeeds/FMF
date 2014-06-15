@@ -29,7 +29,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.RegisteredDataSource;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DataSourcePopup extends Menu{
     

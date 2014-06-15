@@ -33,7 +33,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.TreeCellInfo;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DropTableAction implements ActionListener{
 

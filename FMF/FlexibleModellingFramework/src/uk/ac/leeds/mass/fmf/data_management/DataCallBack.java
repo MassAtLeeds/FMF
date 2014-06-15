@@ -25,7 +25,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.ICallBack;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DataCallBack implements ICallBack{
 

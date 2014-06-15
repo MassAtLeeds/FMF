@@ -1,11 +1,15 @@
 # ignore all of the xml files
 *.xml
 
+*gitignore
+
 #ignore anything in a build directory
-build/
+Build/
 
 #ignore anything in a dist directory
-dist/
+Dist/
+
+Docs/
 
 #ignore anything in the net beans project directory
 nbproject/
@@ -16,7 +20,4 @@ nbproject/
 #ignore DS_Store files
 *.DS_Store
 
-#ignore anything in a lib directory
-lib/
-#but not the lib directory for the current distribution binaries
-!FMF/CurrentDistribution/lib/
+*.class

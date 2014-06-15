@@ -27,7 +27,7 @@ import javax.swing.KeyStroke;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class ApplicationMenu  extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
     /** Creates a new instance of Menu */

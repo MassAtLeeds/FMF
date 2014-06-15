@@ -31,7 +31,7 @@ import java.io.RandomAccessFile;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class FileManager {
 

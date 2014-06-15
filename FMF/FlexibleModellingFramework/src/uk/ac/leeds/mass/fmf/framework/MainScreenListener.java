@@ -23,7 +23,7 @@ package uk.ac.leeds.mass.fmf.framework;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  * 
  * This is a window listener attached to the Main Screen window of the application. 
  * Allows any tidying up of datasources etc. to be done before the application closes.

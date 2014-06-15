@@ -26,7 +26,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.IApplicationInformation;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class MSAccessListener implements ActionListener{
 

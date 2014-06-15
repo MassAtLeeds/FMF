@@ -27,7 +27,7 @@ import javax.swing.event.InternalFrameListener;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class FMFFrame extends JInternalFrame implements InternalFrameListener{
     

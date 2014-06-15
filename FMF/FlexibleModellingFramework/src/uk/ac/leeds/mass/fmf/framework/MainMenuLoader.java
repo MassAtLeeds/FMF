@@ -32,7 +32,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.IMenu;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class MainMenuLoader {
    //Constants
@@ -132,7 +132,7 @@ public class MainMenuLoader {
 
             try{
                 //load the class and resolve it
-                Class c = loader.loadClass(classes[classCount],true);
+				Class c = loader.loadClass(classes[classCount],true);
                 //create an instance of the class in Object o
                 Object o = c.newInstance();
                 //check and make sure that the class instantiated
@@ -200,6 +200,7 @@ public class MainMenuLoader {
                 ZipEntry z = (ZipEntry)en.nextElement();
                 s = z.getName();
 
+				
 
 		//do not get the classnames of the classes in the current framwork
 		if (s.indexOf(FRAMEWORK)>0){continue;}

@@ -26,7 +26,7 @@ package uk.ac.leeds.mass.fmf.data_management;
  * 
  * 
  * 
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 
 import java.sql.Connection;

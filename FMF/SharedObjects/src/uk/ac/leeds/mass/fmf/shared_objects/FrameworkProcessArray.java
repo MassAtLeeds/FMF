@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class FrameworkProcessArray {
 	ArrayList fp = new ArrayList();

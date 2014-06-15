@@ -28,7 +28,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class TreeCellInfo implements Transferable{
 

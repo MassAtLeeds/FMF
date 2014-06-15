@@ -26,7 +26,7 @@ import java.io.OutputStream;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class ScreenOutputStream extends OutputStream{
 

@@ -26,7 +26,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class SaveTableAction  implements ActionListener, Runnable{
     public SaveTableAction (){}

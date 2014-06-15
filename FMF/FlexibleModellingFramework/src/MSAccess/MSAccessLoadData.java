@@ -23,7 +23,7 @@ package MSAccess;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 import java.sql.*;
 import uk.ac.leeds.mass.fmf.shared_objects.FMFTable;

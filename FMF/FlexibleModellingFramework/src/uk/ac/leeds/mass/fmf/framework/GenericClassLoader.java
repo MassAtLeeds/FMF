@@ -23,7 +23,7 @@ package uk.ac.leeds.mass.fmf.framework;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public abstract class GenericClassLoader  extends ClassLoader {
     public GenericClassLoader() {

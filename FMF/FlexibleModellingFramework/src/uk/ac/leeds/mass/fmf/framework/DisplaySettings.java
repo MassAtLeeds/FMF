@@ -25,7 +25,7 @@ import java.awt.Font;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DisplaySettings {
     Font mf = new Font("SansSerif", Font.PLAIN,12);

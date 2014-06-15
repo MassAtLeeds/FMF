@@ -26,7 +26,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.FrameworkProcess;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class ThreadArray {
 	private ArrayList threads = new ArrayList();

@@ -33,7 +33,7 @@ import uk.ac.leeds.mass.fmf.framework.JarInfo;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DataSourceTreeCellRenderer extends DefaultTreeCellRenderer {
 

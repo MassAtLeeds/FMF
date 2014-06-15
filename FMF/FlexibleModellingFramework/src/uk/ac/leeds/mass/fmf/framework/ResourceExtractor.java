@@ -58,7 +58,7 @@ import java.util.zip.ZipInputStream;
  * startup.
  * </li>
  * </ol>
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  * @version 3.0
  */
 public class ResourceExtractor {
@@ -230,10 +230,7 @@ public class ResourceExtractor {
                                 } catch (MalformedURLException murle) {
                                     //throw new IOException("Jar Graph.jar not found");
                                     reportError("getResourceURL","Jar " + j + " not found");
-                                } catch (IOException ioe) {
-                                    //throw new IOException("Jar Graph.jar not readable");
-                                    reportError("getResourceURL","Jar " + j + " not readable");
-                                }
+                                } 
                                 
                                 return url;
                             }

@@ -74,7 +74,7 @@ import java.awt.image.ImageObserver;
  * Swing components to minimise in the overheads of loading the splash screen up.
  * </p>
  * 
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  * @version version 1.0
  */
 class SplashScreen implements ImageObserver{

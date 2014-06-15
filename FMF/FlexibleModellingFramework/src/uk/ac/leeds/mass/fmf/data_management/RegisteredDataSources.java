@@ -44,7 +44,7 @@ import uk.ac.leeds.mass.fmf.shared_objects.SystemProperties;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class RegisteredDataSources extends FrameworkProcess implements ActionListener, IRDSListener, ICallBack {
 

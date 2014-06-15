@@ -25,7 +25,7 @@ package uk.ac.leeds.mass.fmf.framework;
  * This class contains static variables relating to the information about the jar 
  * file and the resources used by the main Framework resources.
  * 
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class JarInfo {
     

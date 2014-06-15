@@ -31,7 +31,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class DataSourceTree extends JTree{
 

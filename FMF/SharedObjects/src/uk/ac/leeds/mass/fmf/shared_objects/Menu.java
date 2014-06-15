@@ -25,7 +25,7 @@ package uk.ac.leeds.mass.fmf.shared_objects;
  * Abstract class containing the code to create a menu with the look and feel definied for the application.
  * All main menu objects must extend this class.
  * 
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 
 

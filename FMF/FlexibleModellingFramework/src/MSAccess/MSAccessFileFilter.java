@@ -27,7 +27,7 @@ import javax.swing.filechooser.FileFilter;
 
 /**
  *
- * @author Kirk Harland <k.harland98@leeds.ac.uk>
+ * @author Kirk Harland k.harland98@leeds.ac.uk
  */
 public class MSAccessFileFilter extends FileFilter{
 
