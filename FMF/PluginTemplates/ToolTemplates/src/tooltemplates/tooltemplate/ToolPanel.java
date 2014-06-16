@@ -18,7 +18,7 @@
  *
  *   Contact email: k.harland@leeds.ac.uk
  */
-package tooltemplate;
+package tooltemplates.tooltemplate;
 
 import javax.swing.*;
 import java.awt.*;

@@ -19,7 +19,7 @@
  *   Contact email: k.harland@leeds.ac.uk
  */
  
-package tooltemplate;
+package tooltemplates.tooltemplate;
 
 
 import uk.ac.leeds.mass.fmf.shared_objects.*;

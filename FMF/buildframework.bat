@@ -16,6 +16,12 @@ ECHO *  (c)MASS@LEEDS  HTTPS://GITHUB.COM/MassAtLeeds/FMF/         *
 ECHO * GNU GENERAL PUBLIC LICENSE 3+  HTTP://WWW.GNU.ORG/licenses/ *
 ECHO *                                                             *
 ECHO ***************************************************************
+ECHO *                                                             *
+ECHO *             Developers' version in Build/                   *
+ECHO *             Distribution version in Dist/                   *
+ECHO *             API Docs in Docs/                               *
+ECHO *                                                             *
+ECHO ***************************************************************
 ECHO ---------------------------------------------------------------
 
 REM ----------------------------------------------------------------
@@ -95,9 +101,11 @@ ECHO ON
 javac Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
 ECHO OFF
 
-SET CLASSPATH=%CLASSPATH%;PluginTemplates\ToolTemplate\src
+SET CLASSPATH=%CLASSPATH%;PluginTemplates\ToolTemplates\src
 ECHO ON
-javac PluginTemplates\ToolTemplate\src\tooltemplate\*.java
+javac PluginTemplates\ToolTemplates\src\tooltemplates\tooltemplate\*.java
+javac PluginTemplates\ToolTemplates\src\tooltemplates\toolcommunication\*.java
+javac PluginTemplates\ToolTemplates\src\tooltemplates\toolmenutemplate\*.java
 ECHO OFF
 
 
@@ -121,7 +129,9 @@ SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.fit_statistics
 SET PACKAGES=%PACKAGES%:fmfstart
 REM Plugin packages
 SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.microsimulation
-SET PACKAGES=%PACKAGES%:tooltemplate
+SET PACKAGES=%PACKAGES%:tooltemplates.tooltemplate
+SET PACKAGES=%PACKAGES%:tooltemplates.toolcommunication
+SET PACKAGES=%PACKAGES%:tooltemplates.toolmenutemplate
 REM 2>NUL redirects StErr. Remove to see javadoc errors or 2> docerrors.txt to record them.
 ECHO ON
 javadoc -d Docs -private -author -quiet -version -link http://docs.oracle.com/javase/8/docs/api/ -sourcepath %CLASSPATH% -subpackages %PACKAGES% 2>NUL 
@@ -214,18 +224,18 @@ DEL Microsimulation\MANIFEST.MF
 
 
 
-ECHO Building ToolTemplate.jar
-IF EXIST PluginTemplates\ToolTemplate\MANIFEST.MF (
+ECHO Building ToolTemplates.jar
+IF EXIST PluginTemplates\ToolTemplates\MANIFEST.MF (
 SET MFEXISTS=TRUE
 ) ELSE (
-ECHO Class-Path: SharedObjects.jar>PluginTemplates\ToolTemplate\MANIFEST.MF
+ECHO Class-Path: SharedObjects.jar>PluginTemplates\ToolTemplates\MANIFEST.MF
 SET MFEXISTS=FALSE
 )
-CD PluginTemplates\ToolTemplate\src
-jar cmf ..\MANIFEST.MF ..\..\..\Build\ToolTemplate.jar tooltemplate\*.class 
+CD PluginTemplates\ToolTemplates\src
+jar cmf ..\MANIFEST.MF ..\..\..\Build\ToolTemplates.jar tooltemplates\tooltemplate\*.class tooltemplates\toolcommunication\*.class tooltemplates\toolmenutemplate\*.class tooltemplates\toolmenutemplate\*.gif
 CD ..\..\..
 IF %MFEXISTS% == FALSE (
-DEL PluginTemplates\ToolTemplate\MANIFEST.MF
+DEL PluginTemplates\ToolTemplates\MANIFEST.MF
 )
 
 
@@ -246,7 +256,7 @@ ECHO ---------------------------------------------------------------
 MKDIR Dist
 
 REM Move any jars we don't want in distribution copy.
-MOVE Build\ToolTemplate.jar Dist\ToolTemplate.jar
+MOVE Build\ToolTemplates.jar Dist\ToolTemplates.jar
 
 CD Build 
 jar cf fmf.zip *
@@ -254,7 +264,7 @@ CD ..
 MOVE Build\fmf.zip Dist\fmf.zip
 
 REM Move any jars back we don't want in distribution copy.
-MOVE Dist\ToolTemplate.jar Build\ToolTemplate.jar
+MOVE Dist\ToolTemplates.jar Build\ToolTemplates.jar
 
 
 

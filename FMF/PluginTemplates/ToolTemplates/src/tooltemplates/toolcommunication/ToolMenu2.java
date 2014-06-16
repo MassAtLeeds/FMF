@@ -18,7 +18,7 @@
  *
  *   Contact email: k.harland@leeds.ac.uk
  */
-package tooltemplate;
+package tooltemplates.toolcommunication;
  
 import java.awt.event.*;
 import uk.ac.leeds.mass.fmf.shared_objects.*;
@@ -26,17 +26,18 @@ import uk.ac.leeds.mass.fmf.shared_objects.*;
 
 /**
  * This class is a minimum required skeleton of a tool menu for FMF.
+ * The same class as ToolMenu1, but for name.
  * @version 1.0
  * @author <A href="http://uk.linkedin.com/pub/kirk-harland/2b/624/5a3">Kirk Harland</A> and <A href="http://www.geog.leeds.ac.uk/people/a.evans/">Andy Evans</A>
  */
-public class ToolMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
+public class ToolMenu2 extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
 
 
 	/**
 	* Constructor just sets up the tool menu name.
 	*/
-    public ToolMenu(){
-        setMenuName("Tool Menu");
+    public ToolMenu2(){
+        setMenuName("Inter-tool Comm Template 2");
     }
 
 
@@ -44,35 +45,14 @@ public class ToolMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
 	
 	/**
     * The getItems method needs to be overridden to add items to the menu drop down.
-    * The object array is two dimensional, the first dimension contains the 
-    * number of menu items that you would like to include in the menu.  The second 
-    * dimension is 6 elements long and contains:
-    * <ol>
-    * <li>The name of the menu item in o[i][0] (leave null to indicate a menu separator to be inserted)</li>
-    * <li>the object to be bound to the click event in o[i][1] (the object that is to be bound to the click event must implement the ActionListener interface)</li>
-    * <li>keyboard shortcuts for the Mneumonic can be stored in o[i][2] (leave null for no keyboard shortcut)</li>
-    * <li>an image to be used as an icon can be stored in o[i][3] (leave null to display no icon)</li>
-    * <li>keyboard shortcuts to be used directly from the keyboard can be stored in o[i][4](leave null for no shortcut)</li>
-    * <li>groups of subitems are created o[i][5] which should contain an integer value remaining constant for each item in a group.
-    * The first item in a group is added to the menu each subsequent item becomes a subitem in a submenu.
-    * All sub items must be grouped together, if they are not an error will occur. </li>
-    * </ol>
-	* Here's an example from the main application:
-	* <ol>
-	* <li>o[2][0] = "Quit...";</li>
-    * <li>o[2][1] = new QuitApplication(ai);</li>
-    * <li>o[2][2] = KeyEvent.VK_Q;</li>
-    * <li>o[2][3] = ai.getImage(JarInfo.JAR_NAME, JarInfo.EXIT_ICON); // Strings</li>
-    * <li>o[2][4] = KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK);</li>
-	* </ol>
     */
     @Override
     protected Object[][] getItems(){
         
         Object[][] o = new Object[1][6];
 
-        o[0][0] = "Tool"; // Menu item title.
-        o[0][1] = new ToolMenuListener();
+        o[0][0] = "Tool 2"; // Menu item title.
+        o[0][1] = new ToolMenu2Listener();
 
         return o;
     }
@@ -83,7 +63,7 @@ public class ToolMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
     /**
 	* Here, for simplicity, we use a nested class to listen to the menu option.
 	**/
-    class ToolMenuListener implements ActionListener{
+    class ToolMenu2Listener implements ActionListener{
 
       
 		/**
@@ -102,14 +82,11 @@ public class ToolMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
                 @Override
                 public void run() {
 				
-                    ToolPanel tp = new ToolPanel(ai);
-                    FMFFrame f = ai.getMainPanel("Tool Window Title", tp);
+                    ToolPanel2 tp = new ToolPanel2(ai);
+                    FMFFrame f = ai.getMainPanel("Tool 2 Window Title", tp);
 					
-					// If more than one window with this name is open numbers are 
-					// added to the end so once it has been added, update the name 
-					// in the actual configuration screen with the exact name 
-					// it has been allocated.
-                    // tp.setWindowTitle(f.getWindowTitle());
+					// Let the new panel know about the frame it is embedded within.
+					tp.setEmbeddingFrame(f);
                     
 					// Set the frame to null to tidy up thread.
                     f = null;
