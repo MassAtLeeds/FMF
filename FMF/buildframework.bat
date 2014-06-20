@@ -108,6 +108,10 @@ javac PluginTemplates\ToolTemplates\src\tooltemplates\toolcommunication\*.java
 javac PluginTemplates\ToolTemplates\src\tooltemplates\toolmenutemplate\*.java
 ECHO OFF
 
+SET CLASSPATH=%CLASSPATH%;Graph\src
+ECHO ON
+javac Graph\src\uk\ac\leeds\mass\fmf\graph\*.java
+ECHO OFF
 
 REM  ---------------------------------------------------------------
 REM  For new plugins, add the package to the PACKAGES variable, as 
@@ -132,6 +136,7 @@ SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.microsimulation
 SET PACKAGES=%PACKAGES%:tooltemplates.tooltemplate
 SET PACKAGES=%PACKAGES%:tooltemplates.toolcommunication
 SET PACKAGES=%PACKAGES%:tooltemplates.toolmenutemplate
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.graph
 REM 2>NUL redirects StErr. Remove to see javadoc errors or 2> docerrors.txt to record them.
 ECHO ON
 javadoc -d Docs -private -author -quiet -version -link http://docs.oracle.com/javase/8/docs/api/ -sourcepath %CLASSPATH% -subpackages %PACKAGES% 2>NUL 
@@ -237,6 +242,23 @@ CD ..\..\..
 IF %MFEXISTS% == FALSE (
 DEL PluginTemplates\ToolTemplates\MANIFEST.MF
 )
+
+
+
+ECHO Building Graph.jar
+IF EXIST Graph\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: SharedObjects.jar>Graph\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD Graph\src
+jar cmf ..\MANIFEST.MF ..\..\Build\Graph.jar uk\ac\leeds\mass\fmf\graph\*.class uk\ac\leeds\mass\fmf\graph\*.properties graph\*.class
+CD ..\..
+IF %MFEXISTS% == FALSE (
+DEL Graph\MANIFEST.MF
+)
+
 
 
 ECHO ---------------------------------------------------------------
