@@ -1,0 +1,41 @@
+#1 - Get rid of ECHO ON and ECHO OFF and ENDLOCAL and SET LOCAL
+
+sed -i.bak 's/ECHO ON//g' buildframework.sh
+sed -i.bak 's/ECHO OFF//g' buildframework.sh
+sed -i.bak 's/SETLOCAL//g' buildframework.sh
+sed -i.bak 's/ENDLOCAL//g' buildframework.sh
+
+#2 - Change ECHO to echo and add quotes
+(do this in vim because I can't work it out in sed)
+
+%s/ECHO \(.*\)/echo "\1"
+
+#4 - Replace REM with comment character
+
+sed -i.bak 's/REM/#/g' buildframework.sh
+
+#5 - Replace SET with 'export'
+
+sed -i.bak 's/SET/export/g' buildframework.sh
+
+#6 - Fix CLASSPATH and PACKAGE lines:
+
+%s//$CLASSPATH:/g
+sed -i.bak 's/%CLASSPATH%;/$CLASSPATH:/g' buildframework.sh
+
+%s/%PACKAGES%/$PACKAGES/g
+sed -i.bak 's/%PACKAGES%/$PACKAGES/g' buildframework.sh
+
+#7 Replace back-slashes with forward slashes
+
+sed -i.bak 's/\\/\//g' buildframework.sh
+
+#8 A few other minor fixes
+
+sed -i.bak 's/MKDIR/mkdir/g' buildframework.sh
+sed -i.bak 's/MOVE/mv/g' buildframework.sh
+sed -i.bak 's/CD/cd/g' buildframework.sh
+sed -i.bak 's/COPY/cp/g' buildframework.sh
+sed -i.bak 's/DEL/rm/g' buildframework.sh
+sed -i.bak 's/IF/if/g' buildframework.sh
+sed -i.bak 's/ELSE/else/g' buildframework.sh
