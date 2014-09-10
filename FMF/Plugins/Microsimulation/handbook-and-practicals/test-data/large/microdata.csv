@@ -1,4 +1,4 @@
-ID,Sex,ageband4,SexAge,Car,NSSEC8
+ID,Sex,Age,SexAge,Car,NSSEC8
 1,m,25-34,m25-34,2,7
 2,f,55-64,f55-64,2,2
 3,f,45-54,f45-54,1,2

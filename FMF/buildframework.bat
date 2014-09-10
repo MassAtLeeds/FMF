@@ -295,6 +295,7 @@ ECHO ---------------------------------------------------------------
 ECHO Copy essential non-jar files
 ECHO ---------------------------------------------------------------
 COPY License.txt Build\License.txt
+COPY ReadmeToGetStarted.txt Build\ReadmeToGetStarted.txt
 COPY FlexibleModellingFramework\Init.txt Build\Init.txt
 
 MKDIR Build\handbooks-and-practicals

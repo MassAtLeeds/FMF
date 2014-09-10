@@ -298,6 +298,7 @@ echo "---------------------------------------------------------------"
 echo "Copy essential non-jar files"
 echo "---------------------------------------------------------------"
 cp License.txt Build/License.txt
+cp ReadmeToGetStarted.txt Build/ReadmeToGetStarted.txt
 cp FlexibleModellingFramework/Init.txt Build/Init.txt
 
 mkdir Build/handbooks-and-practicals
