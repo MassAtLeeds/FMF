@@ -98,7 +98,19 @@ echo "---------------------------------------------------------------"
 echo "Compile plugins  "
 echo "---------------------------------------------------------------"
 
-javac Microsimulation/src/uk/ac/leeds/mass/fmf/microsimulation/*.java
+export CLASSPATH=$CLASSPATH:Plugins/Microsimulation/src
+
+javac Plugins/Microsimulation/src/uk/ac/leeds/mass/fmf/microsimulation/*.java
+
+export CLASSPATH=$CLASSPATH:Plugins/Graph/src
+
+javac Plugins/Graph/src/uk/ac/leeds/mass/fmf/graph/*.java
+
+export CLASSPATH=$CLASSPATH:Plugins/ClusterHunter/src
+
+javac Plugins/ClusterHunter/src/uk/ac/leeds/mass/coordinates/*.java
+javac Plugins/ClusterHunter/src/uk/ac/leeds/mass/fmf/clusterhunterui/*.java
+javac Plugins/ClusterHunter/src/uk/ac/leeds/mass/cluster/*.java
 
 
 export CLASSPATH=$CLASSPATH:PluginTemplates/ToolTemplates/src
@@ -108,9 +120,7 @@ javac PluginTemplates/ToolTemplates/src/tooltemplates/toolcommunication/*.java
 javac PluginTemplates/ToolTemplates/src/tooltemplates/toolmenutemplate/*.java
 
 
-export CLASSPATH=$CLASSPATH:Graph/src
 
-javac Graph/src/uk/ac/leeds/mass/fmf/graph/*.java
 
 
 #  ---------------------------------------------------------------
@@ -133,10 +143,13 @@ export PACKAGES=$PACKAGES:uk.ac.leeds.mass.fmf.fit_statistics
 export PACKAGES=$PACKAGES:fmfstart
 # Plugin packages
 export PACKAGES=$PACKAGES:uk.ac.leeds.mass.fmf.microsimulation
+export PACKAGES=$PACKAGES:uk.ac.leeds.mass.fmf.graph
+export PACKAGES=$PACKAGES:uk.ac.leeds.mass.coordinates
+export PACKAGES=$PACKAGES:uk.ac.leeds.mass.fmf.clusterhunterui
+export PACKAGES=$PACKAGES:uk.ac.leeds.mass.cluster
 export PACKAGES=$PACKAGES:tooltemplates.tooltemplate
 export PACKAGES=$PACKAGES:tooltemplates.toolcommunication
 export PACKAGES=$PACKAGES:tooltemplates.toolmenutemplate
-export PACKAGES=$PACKAGES:uk.ac.leeds.mass.fmf.graph
 # 2>NUL redirects StErr. Remove to see javadoc errors or 2> docerrors.txt to record them.
 
 javadoc -d Docs -private -author -quiet -version -link http://docs.oracle.com/javase/8/docs/api/ -sourcepath %CLASSPATH% -subpackages $PACKAGES 2>NUL 
@@ -214,17 +227,49 @@ echo "Build plugin jars"
 echo "---------------------------------------------------------------"
 
 echo "Building Microsimulation.jar"
-if EXIST Microsimulation/MANifEST.MF (
+if EXIST Plugins/Microsimulation/MANifEST.MF (
 export MFEXISTS=TRUE
 ) else (
-echo "Class-Path: lib/SharedObjects.jar lib/swing-layout-1.0.3.jar lib/ec_util.jar>Microsimulation/MANifEST.MF"
+echo "Class-Path: lib/SharedObjects.jar lib/swing-layout-1.0.3.jar lib/ec_util.jar>Plugins/Microsimulation/MANifEST.MF"
 export MFEXISTS=FALSE
 )
-cd Microsimulation/src
-jar cmf ../MANifEST.MF ../../Build/Microsimulation.jar uk/ac/leeds/mass/fmf/microsimulation/*.form uk/ac/leeds/mass/fmf/microsimulation/*.class
-cd ../..
+cd Plugins/Microsimulation/src
+jar cmf ../MANifEST.MF ../../../Build/Microsimulation.jar uk/ac/leeds/mass/fmf/microsimulation/*.form uk/ac/leeds/mass/fmf/microsimulation/*.class
+cd ../../..
 if %MFEXISTS% == FALSE (
-rm Microsimulation/MANifEST.MF
+rm Plugins/Microsimulation/MANifEST.MF
+)
+
+
+
+echo "Building Graph.jar"
+if EXIST Plugins/Graph/MANifEST.MF (
+export MFEXISTS=TRUE
+) else (
+echo "Class-Path: SharedObjects.jar>Plugins/Graph/MANifEST.MF"
+export MFEXISTS=FALSE
+)
+cd Plugins/Graph/src
+jar cmf ../MANifEST.MF ../../../Build/Graph.jar uk/ac/leeds/mass/fmf/graph/*.class uk/ac/leeds/mass/fmf/graph/*.properties graph/*.class
+cd ../../..
+if %MFEXISTS% == FALSE (
+rm Plugins/Graph/MANifEST.MF
+)
+
+
+
+echo "Building ClusterHunter.jar"
+if EXIST Plugins/ClusterHunter/MANifEST.MF (
+export MFEXISTS=TRUE
+) else (
+echo "Class-Path: SharedObjects.jar>Plugins/ClusterHunter/MANifEST.MF"
+export MFEXISTS=FALSE
+)
+cd Plugins/ClusterHunter/src
+jar cmf ../MANifEST.MF ../../../Build/ClusterHunter.jar uk/ac/leeds/mass/coordinates/*.class uk/ac/leeds/mass/fmf/clusterhunterui/*.class uk/ac/leeds/mass/cluster/*.class org/gavaghan/geodesy/*.class org/json/*.class org/json/*.class
+cd ../../..
+if %MFEXISTS% == FALSE (
+rm Plugins/ClusterHunter/MANifEST.MF
 )
 
 
@@ -245,19 +290,7 @@ rm PluginTemplates/ToolTemplates/MANifEST.MF
 
 
 
-echo "Building Graph.jar"
-if EXIST Graph/MANifEST.MF (
-export MFEXISTS=TRUE
-) else (
-echo "Class-Path: SharedObjects.jar>Graph/MANifEST.MF"
-export MFEXISTS=FALSE
-)
-cd Graph/src
-jar cmf ../MANifEST.MF ../../Build/Graph.jar uk/ac/leeds/mass/fmf/graph/*.class uk/ac/leeds/mass/fmf/graph/*.properties graph/*.class
-cd ../..
-if %MFEXISTS% == FALSE (
-rm Graph/MANifEST.MF
-)
+
 
 
 
@@ -266,8 +299,14 @@ echo "Copy essential non-jar files"
 echo "---------------------------------------------------------------"
 cp License.txt Build/License.txt
 cp FlexibleModellingFramework/Init.txt Build/Init.txt
-mkdir Build/test-data
-cp "Test Data/*" Build/test-data
+
+mkdir Build/handbooks-and-practicals
+
+mkdir Build/handbooks-and-practicals/Microsimulation
+cp -r "Plugins/Microsimulation/handbook-and-practicals/*" Build/handbooks-and-practicals/Microsimulation 
+
+mkdir Build/handbooks-and-practicals/ClusterHunter
+cp -r "Plugins/ClusterHunter/handbook-and-practicals/*" Build/handbooks-and-practicals/ClusterHunter 
 
 
 

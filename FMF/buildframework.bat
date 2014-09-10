@@ -97,8 +97,22 @@ REM ----------------------------------------------------------------
 ECHO ---------------------------------------------------------------
 ECHO Compile plugins  
 ECHO ---------------------------------------------------------------
+
+SET CLASSPATH=%CLASSPATH%;Plugins\Microsimulation\src
 ECHO ON
-javac Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
+javac Plugins\Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
+ECHO OFF
+
+SET CLASSPATH=%CLASSPATH%;Plugins\Graph\src
+ECHO ON
+javac Plugins\Graph\src\uk\ac\leeds\mass\fmf\graph\*.java
+ECHO OFF
+
+SET CLASSPATH=%CLASSPATH%;Plugins\ClusterHunter\src
+ECHO ON
+javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\coordinates\*.java
+javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\fmf\clusterhunterui\*.java
+javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\cluster\*.java
 ECHO OFF
 
 SET CLASSPATH=%CLASSPATH%;PluginTemplates\ToolTemplates\src
@@ -108,10 +122,7 @@ javac PluginTemplates\ToolTemplates\src\tooltemplates\toolcommunication\*.java
 javac PluginTemplates\ToolTemplates\src\tooltemplates\toolmenutemplate\*.java
 ECHO OFF
 
-SET CLASSPATH=%CLASSPATH%;Graph\src
-ECHO ON
-javac Graph\src\uk\ac\leeds\mass\fmf\graph\*.java
-ECHO OFF
+
 
 REM  ---------------------------------------------------------------
 REM  For new plugins, add the package to the PACKAGES variable, as 
@@ -133,10 +144,13 @@ SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.fit_statistics
 SET PACKAGES=%PACKAGES%:fmfstart
 REM Plugin packages
 SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.microsimulation
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.graph
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.coordinates
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.clusterhunterui
+SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.cluster
 SET PACKAGES=%PACKAGES%:tooltemplates.tooltemplate
 SET PACKAGES=%PACKAGES%:tooltemplates.toolcommunication
 SET PACKAGES=%PACKAGES%:tooltemplates.toolmenutemplate
-SET PACKAGES=%PACKAGES%:uk.ac.leeds.mass.fmf.graph
 REM 2>NUL redirects StErr. Remove to see javadoc errors or 2> docerrors.txt to record them.
 ECHO ON
 javadoc -d Docs -private -author -quiet -version -link http://docs.oracle.com/javase/8/docs/api/ -sourcepath %CLASSPATH% -subpackages %PACKAGES% 2>NUL 
@@ -214,17 +228,50 @@ ECHO Build plugin jars
 ECHO ---------------------------------------------------------------
 
 ECHO Building Microsimulation.jar
-IF EXIST Microsimulation\MANIFEST.MF (
+IF EXIST Plugins\Microsimulation\MANIFEST.MF (
 SET MFEXISTS=TRUE
 ) ELSE (
-ECHO Class-Path: lib/SharedObjects.jar lib/swing-layout-1.0.3.jar lib/ec_util.jar>Microsimulation\MANIFEST.MF
+ECHO Class-Path: lib/SharedObjects.jar lib/swing-layout-1.0.3.jar lib/ec_util.jar>Plugins\Microsimulation\MANIFEST.MF
 SET MFEXISTS=FALSE
 )
-CD Microsimulation\src
-jar cmf ..\MANIFEST.MF ..\..\Build\Microsimulation.jar uk\ac\leeds\mass\fmf\microsimulation\*.form uk\ac\leeds\mass\fmf\microsimulation\*.class
-CD ..\..
+CD Plugins\Microsimulation\src
+jar cmf ..\MANIFEST.MF ..\..\..\Build\Microsimulation.jar uk\ac\leeds\mass\fmf\microsimulation\*.form uk\ac\leeds\mass\fmf\microsimulation\*.class
+CD ..\..\..
 IF %MFEXISTS% == FALSE (
-DEL Microsimulation\MANIFEST.MF
+DEL Plugins\Microsimulation\MANIFEST.MF
+)
+
+
+
+
+ECHO Building Graph.jar
+IF EXIST Plugins\Graph\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: SharedObjects.jar>Plugins\Graph\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD Plugins\Graph\src
+jar cmf ..\MANIFEST.MF ..\..\..\Build\Graph.jar uk\ac\leeds\mass\fmf\graph\*.class uk\ac\leeds\mass\fmf\graph\*.properties graph\*.class
+CD ..\..\..
+IF %MFEXISTS% == FALSE (
+DEL Plugins\Graph\MANIFEST.MF
+)
+
+
+
+ECHO Building ClusterHunter.jar
+IF EXIST Plugins\ClusterHunter\MANIFEST.MF (
+SET MFEXISTS=TRUE
+) ELSE (
+ECHO Class-Path: SharedObjects.jar>Plugins\ClusterHunter\MANIFEST.MF
+SET MFEXISTS=FALSE
+)
+CD Plugins\ClusterHunter\src
+jar cmf ..\MANIFEST.MF ..\..\..\Build\ClusterHunter.jar uk\ac\leeds\mass\coordinates\*.class uk\ac\leeds\mass\fmf\clusterhunterui\*.class uk\ac\leeds\mass\cluster\*.class org\gavaghan\geodesy\*.class org\json\*.class org\json\*.class
+CD ..\..\..
+IF %MFEXISTS% == FALSE (
+DEL Plugins\ClusterHunter\MANIFEST.MF
 )
 
 
@@ -244,31 +291,19 @@ DEL PluginTemplates\ToolTemplates\MANIFEST.MF
 )
 
 
-
-ECHO Building Graph.jar
-IF EXIST Graph\MANIFEST.MF (
-SET MFEXISTS=TRUE
-) ELSE (
-ECHO Class-Path: SharedObjects.jar>Graph\MANIFEST.MF
-SET MFEXISTS=FALSE
-)
-CD Graph\src
-jar cmf ..\MANIFEST.MF ..\..\Build\Graph.jar uk\ac\leeds\mass\fmf\graph\*.class uk\ac\leeds\mass\fmf\graph\*.properties graph\*.class
-CD ..\..
-IF %MFEXISTS% == FALSE (
-DEL Graph\MANIFEST.MF
-)
-
-
-
 ECHO ---------------------------------------------------------------
 ECHO Copy essential non-jar files
 ECHO ---------------------------------------------------------------
 COPY License.txt Build\License.txt
 COPY FlexibleModellingFramework\Init.txt Build\Init.txt
-MKDIR Build\test-data
-COPY "Test Data\*" Build\test-data
 
+MKDIR Build\handbooks-and-practicals
+
+MKDIR Build\handbooks-and-practicals\Microsimulation
+XCOPY Plugins\Microsimulation\handbook-and-practicals\* Build\handbooks-and-practicals\Microsimulation\ /E
+
+MKDIR Build\handbooks-and-practicals\ClusterHunter
+XCOPY Plugins\ClusterHunter\handbook-and-practicals\* Build\handbooks-and-practicals\ClusterHunter\ /E
 
 
 ECHO ---------------------------------------------------------------
