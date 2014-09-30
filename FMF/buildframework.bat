@@ -301,10 +301,10 @@ COPY FlexibleModellingFramework\Init.txt Build\Init.txt
 MKDIR Build\handbooks-and-practicals
 
 MKDIR Build\handbooks-and-practicals\Microsimulation
-XCOPY Plugins\Microsimulation\handbook-and-practicals\* Build\handbooks-and-practicals\Microsimulation\ /E
+XCOPY Plugins\Microsimulation\handbook-and-practicals\* Build\handbooks-and-practicals\Microsimulation\ /E /Y
 
 MKDIR Build\handbooks-and-practicals\ClusterHunter
-XCOPY Plugins\ClusterHunter\handbook-and-practicals\* Build\handbooks-and-practicals\ClusterHunter\ /E
+XCOPY Plugins\ClusterHunter\handbook-and-practicals\* Build\handbooks-and-practicals\ClusterHunter\ /E /Y
 
 
 ECHO ---------------------------------------------------------------

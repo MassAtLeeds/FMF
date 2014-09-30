@@ -46,7 +46,7 @@ public class MainMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
         String v[] = ai.getAllModelNames(JarInfo.MICROSIMULATION_VALIDATION);
         int vconfigs = v.length;
 
-        Object[][] o = new Object[7 + (configs * 2) + (vconfigs * 2)][6];
+        Object[][] o = new Object[9 + (configs * 2) + (vconfigs * 2)][6];
 
         //sets up the microsimulation main menu
         o[0][0] = "New microsimulation model";
@@ -98,6 +98,11 @@ public class MainMenu extends uk.ac.leeds.mass.fmf.shared_objects.Menu{
             o[7+(configs*2)+(vconfigs)+i][5] = 5;
         }
 
+
+		
+		o[8 +(configs*2)+(vconfigs*2)][0] = "Data combiner"; // Menu item title.
+        o[8 +(configs*2)+(vconfigs*2)][1] = new DataCombiner(ai);
+		
         return o;
     }
 
