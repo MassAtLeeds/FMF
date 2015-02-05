@@ -21,6 +21,12 @@ ECHO *             Developers' version in Build/                   *
 ECHO *             Distribution version in Dist/                   *
 ECHO *             API Docs in Docs/                               *
 ECHO *                                                             *
+ECHO *                                                             *
+ECHO *             Command line arguments include:                 *
+ECHO *           buildframework targetJDK bootclassJar             *
+ECHO *                         e.g.                                *
+ECHO *          buildframework 1.7 c:/jre/lib/rt.jar               *
+ECHO *                                                             *
 ECHO ***************************************************************
 ECHO ---------------------------------------------------------------
 
@@ -75,18 +81,21 @@ SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\ec_util.jar
 SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\opencsv-2.3.jar
 SET CLASSPATH=%CLASSPATH%;..\..\Dependancies\swing-layout-1.0.4.jar
 
+REM If version given, use it. 
+IF NOT "%~1"=="" SET VERSION=-source %1 -target %1
+IF NOT "%~2"=="" SET VERSION=%VERSION% -bootclasspath %2
 
 ECHO ---------------------------------------------------------------
 ECHO Compile core files   
 ECHO ---------------------------------------------------------------
-javac FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\framework\*.java
-javac FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\data_management\*.java
-javac FlexibleModellingFramework\src\FlatFile\*.java
-javac FlexibleModellingFramework\src\MSAccess\*.java
-javac FMFStart\src\fmfstart\*.java
-javac SharedObjects\src\uk\ac\leeds\mass\fmf\fit_statistics\*.java
-javac SharedObjects\src\uk\ac\leeds\mass\fmf\generic_algorithms\*.java
-javac SharedObjects\src\uk\ac\leeds\mass\fmf\shared_objects\*.java
+javac %VERSION% FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\framework\*.java
+javac %VERSION% FlexibleModellingFramework\src\uk\ac\leeds\mass\fmf\data_management\*.java
+javac %VERSION% FlexibleModellingFramework\src\FlatFile\*.java
+javac %VERSION% FlexibleModellingFramework\src\MSAccess\*.java
+javac %VERSION% FMFStart\src\fmfstart\*.java
+javac %VERSION% SharedObjects\src\uk\ac\leeds\mass\fmf\fit_statistics\*.java
+javac %VERSION% SharedObjects\src\uk\ac\leeds\mass\fmf\generic_algorithms\*.java
+javac %VERSION% SharedObjects\src\uk\ac\leeds\mass\fmf\shared_objects\*.java
 
 
 REM ----------------------------------------------------------------
@@ -100,26 +109,26 @@ ECHO ---------------------------------------------------------------
 
 SET CLASSPATH=%CLASSPATH%;Plugins\Microsimulation\src
 ECHO ON
-javac Plugins\Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
+javac %VERSION% Plugins\Microsimulation\src\uk\ac\leeds\mass\fmf\microsimulation\*.java
 ECHO OFF
 
 SET CLASSPATH=%CLASSPATH%;Plugins\Graph\src
 ECHO ON
-javac Plugins\Graph\src\uk\ac\leeds\mass\fmf\graph\*.java
+javac %VERSION% Plugins\Graph\src\uk\ac\leeds\mass\fmf\graph\*.java
 ECHO OFF
 
 SET CLASSPATH=%CLASSPATH%;Plugins\ClusterHunter\src
 ECHO ON
-javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\coordinates\*.java
-javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\fmf\clusterhunterui\*.java
-javac Plugins\ClusterHunter\src\uk\ac\leeds\mass\cluster\*.java
+javac %VERSION% Plugins\ClusterHunter\src\uk\ac\leeds\mass\coordinates\*.java
+javac %VERSION% Plugins\ClusterHunter\src\uk\ac\leeds\mass\fmf\clusterhunterui\*.java
+javac %VERSION% Plugins\ClusterHunter\src\uk\ac\leeds\mass\cluster\*.java
 ECHO OFF
 
 SET CLASSPATH=%CLASSPATH%;PluginTemplates\ToolTemplates\src
 ECHO ON
-javac PluginTemplates\ToolTemplates\src\tooltemplates\tooltemplate\*.java
-javac PluginTemplates\ToolTemplates\src\tooltemplates\toolcommunication\*.java
-javac PluginTemplates\ToolTemplates\src\tooltemplates\toolmenutemplate\*.java
+javac %VERSION% PluginTemplates\ToolTemplates\src\tooltemplates\tooltemplate\*.java
+javac %VERSION% PluginTemplates\ToolTemplates\src\tooltemplates\toolcommunication\*.java
+javac %VERSION% PluginTemplates\ToolTemplates\src\tooltemplates\toolmenutemplate\*.java
 ECHO OFF
 
 
